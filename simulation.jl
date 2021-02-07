@@ -6,92 +6,15 @@
 2^(10*i) ... 10^(3*i)
 =#
 
-function simulate()
+function simulate(multipliersOfInerest)
     i = 0
-
-    while (big(2)^big(10 * i) < 2*big(10)^big(3 * i))
-        i +=1
+    for m in multipliersOfInerest
+        while (big(2)^big(10 * i) < m*big(10)^big(3 * i))
+            i +=1
+        end
+        println("Binary 2^$(10*i) is $m times larger than decimal 10^$(3*i) for i = $i")
     end
-    println("Binary is 2 times larger than decimal for i = $i")
-
-    
-    while (big(2)^big(10 * i) < 3*big(10)^big(3 * i))
-        i +=1
-    end
-    println("Binary is 3 times larger than decimal for i = $i")
-    
-    
-    while (big(2)^big(10 * i) < 4*big(10)^big(3 * i))
-        i +=1
-    end
-    println("Binary is 4 times larger than decimal for i = $i")
-    
-    
-    while (big(2)^big(10 * i) < 5*big(10)^big(3 * i))
-        i +=1
-    end
-    println("Binary is 5 times larger than decimal for i = $i")
-    
-    
-    while (big(2)^big(10 * i) < 6*big(10)^big(3 * i))
-        i +=1
-    end
-    println("Binary is 6 times larger than decimal for i = $i")
-    
-    
-    while (big(2)^big(10 * i) < 7*big(10)^big(3 * i))
-        i +=1
-    end
-    println("Binary is 7 times larger than decimal for i = $i")
-    
-    
-    while (big(2)^big(10 * i) < 8*big(10)^big(3 * i))
-        i +=1
-    end
-    println("Binary is 8 times larger than decimal for i = $i")
-    
-    
-    while (big(2)^big(10 * i) < 9*big(10)^big(3 * i))
-        i +=1
-    end
-    println("Binary is 9 times larger than decimal for i = $i")
-    
-    
-    while (big(2)^big(10 * i) < 10*big(10)^big(3 * i))
-        i +=1
-    end
-    println("Binary is 10 times larger than decimal for i = $i")
-
-
-
-    while (big(2)^big(10 * i) < 100*big(10)^big(3 * i))
-        i +=1
-    end
-    println("Binary is 100 times larger than decimal for i = $i")
-    
-    # At this point, the 2-based value is actually one step further than 10-based.
-    # As though 1 kibibyte were as big as 1 megabyte
-    while (big(2)^big(10 * i) < 1000*big(10)^big(3 * i))
-        i +=1
-    end
-    println("Binary is 1000 times larger than decimal for i = $i")
-
-
 end
 
-
-# Helper function to help me write the code. Could have just used a for-loop inside the simulate() function :face_palm:
-function kreator(step)
-    for j in step
-        println("""
-    while (big(2)^big(10 * i) < $j*big(10)^big(3 * i))
-        i +=1
-    end
-    println("Binary is $j times larger than decimal for i = \$i")""")
-    println("\n")
-end
-end
-
-
-# Run the simulation.
-simulate()
+# Usage: simulate(multipliersOfInerest), where multipliersOfInerest ... range, array or something similar. 
+println("Usage example: simulate(union(2:10, 100, 1000))")
